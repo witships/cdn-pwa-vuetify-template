@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#install-pwa {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5647058824);
+  color: white;
+}
+
+.v-theme--light {
+  background-color: #f3f0e6;
+}/*# sourceMappingURL=style.css.map */

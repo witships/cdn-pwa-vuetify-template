@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/vuetify@3.0.0-beta.3/dist/vuetify.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="pwa/images/icon192.png" />
+    <title>タイトル</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <v-app>
+        <v-main class="pa-2">
+          <Navbar></Navbar>
+          <!-- メインコンテンツ  -->
+          <h1>vuetify</h1>
+          <v-card width="200" height="100" color="primary"> {{count}} </v-card>
+          <v-btn @click="countup()" color="primary">primary</v-btn>
+          <v-btn color="secondary">secondary</v-btn>
+          <v-btn color="accent">accent</v-btn>
+          <v-btn color="error">error</v-btn>
+        </v-main>
+      </v-app>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuetify@3.0.0-beta.3/dist/vuetify.js"></script>
+    <script src="js/vuetify.js"></script>
+    <script src="js/compornents.js"></script>
+
+    <script>
+      const myapp = {
+        components: {
+          Navbar: Navbar,
+        },
+        data() {
+          return {
+            count: 2,
+          }
+        },
+        computed: {
+          dobble() {
+            return this.count * 3
+          },
+        },
+        methods: {
+          countup() {
+            this.count++
+          },
+        },
+        mounted() {
+          this.count = 3
+        },
+      }
+      app = Vue.createApp(myapp)
+      app.use(vuetify)
+      app.mount("#app")
+    </script>
+  </body>
+</html>
