@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.backimg {
+  background-image: url("/beach02.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: scroll;
+}
+
 #install-pwa {
   display: none;
   position: absolute;

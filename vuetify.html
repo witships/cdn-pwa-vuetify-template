@@ -20,7 +20,7 @@
 
   <body>
     <div id="app">
-      <v-app>
+      <v-app class="backimg">
         <v-main class="pa-2">
           <Navbar></Navbar>
           <!-- メインコンテンツ  -->
@@ -30,6 +30,9 @@
           <v-btn color="secondary">secondary</v-btn>
           <v-btn color="accent">accent</v-btn>
           <v-btn color="error">error</v-btn>
+          <ol>
+            <li v-for="i in 50">{{i}}</li>
+          </ol>
         </v-main>
       </v-app>
     </div>

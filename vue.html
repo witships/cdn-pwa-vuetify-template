@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link rel="icon" href="pwa/images/icon192.png" />
+    <!-- manifest -->
+    <link rel="manifest" href="pwa/manifest.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Vanilla</title>
+  </head>
+
+  <body>
+    <div id="app" class="backimg">
+      <h1>vue</h1>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="vuetify.html">vuetify</a></li>
+        <li><a href="vue.html">vue</a></li>
+        <li><a href="vanilla.html">vanilla</a></li>
+      </ul>
+      <ol>
+        <li v-for="i in 40">{{i}}</li>
+      </ol>
+    </div>
+    <!-- インストールボタン：デフォルト非表示=>条件によって表示 -->
+    <button id="install-pwa">デスクトップにインストール</button>
+
+    <!-- ここからserviceWorker -->
+    <script src="pwa/pwa.js" defer></script>
+    <script>
+      window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("./pwa/sw.js")
+            .then((registration) => console.log("registered", registration))
+            .catch((error) => console.log("error", error))
+        }
+      })
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const myapp = {
+        data() {
+          return {
+            count: 2,
+          }
+        },
+        computed: {
+          dobble() {
+            return this.count * 3
+          },
+        },
+        methods: {
+          countup() {
+            this.count++
+          },
+        },
+        mounted() {
+          this.count = 3
+        },
+      }
+      app = Vue.createApp(myapp)
+      app.mount("#app")
+    </script>
+  </body>
+</html>
